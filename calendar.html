@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CALENDAR</title>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                
+            }
+            h3.solid {
+                border-style: solid;
+                text-align: center;
+            }
+            h2{
+                text-align: center;
+                border: 1px solid black;
+                width: 475px;
+            }
+             
+        </style>
+    </head>
+    <body>
+        <div>
+            <p id="error"></p>
+            <div>
+                <h2 id="month"></h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sunday</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                        <th>Saturday</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+
+                </tbody>
+            </table>
+        </div>
+        <script>
+            var input1 = parseInt(prompt('MONTH (1-12)'));
+            var input2 = parseInt(prompt('Start of the Week (1-7)'));
+
+            if (input1 <= 0 || input1 > 12 || input2 <= 0 || input2 > 7) {
+                document.getElementById("error").innerHTML = "Invalid Input";
+            } else {
+                var table = document.getElementById("tableBody");
+                var month = document.getElementById("month");
+
+                var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                var limits = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+                month.innerHTML = months[input1-1];
+                
+                var start = input2;
+                var days = 0;
+                var month_limit = limits[input1-1];
+                
+                table.innerHTML = "";
+
+                for (var a = 0; a < 5; a++)
+                {
+                    var row = document.createElement("tr");
+
+                    for (var i = 0; i < 7; i++)
+                    {
+                        if (days >= month_limit)
+                            continue;
+
+                        if (start != 0)
+                            start--;
+
+                        var cell = document.createElement("td");
+
+                        if (start == 0)
+                        {
+                            days++;
+                            cell.innerHTML = days;
+                        }
+
+                        row.appendChild(cell);
+                        table.appendChild(row);
+
+                        console.log(days);
+                    }
+                }
+            }
+
+        </script>
+    </body>
+</html>
