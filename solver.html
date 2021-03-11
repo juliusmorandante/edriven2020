@@ -1,0 +1,106 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAX PAYMENT</title>
+</head>
+<link rel="stylesheet" href="styles.css">
+<body>
+    <form action="">
+
+        <div>
+            User Input From 100-10000<br>
+            <input type = "number" id = "subtalVal" placeholder="SUBTOTAL" onkeyup = "samplecalc()">
+            <br>
+            +12% TAX<br>
+            <input type = "number" id= "taxVal" placeholder= "TAX" readonly>
+            <br>
+            SUBTOTAL + TAX<br>
+            <input type = "number" id= "subtaxVal" placeholder= "TOTAL" readonly> 
+            <br>
+            MINIMUM IS BASE ON SUBTOTAL+TAX<br>
+            <input type = "number" id= "amountVal" placeholder= "AMOUNT PAID" onkeyup="change()">
+            <br>
+            AMOUNT PAID-TOTAL<br>
+            <input type = "number" id= "changeVal" placeholder= "CHANGE" readonly>
+            <br>
+            <button type = "submit" id= "confirm">PAY</button>
+        </div>
+    
+    </form>
+</body>
+</html>
+<script>
+    
+    function samplecalc() {
+        var subval = parseFloat(document.getElementById('subtalVal').value);
+        var tax = 0.12;
+        var amv = parseFloat(document.getElementById('amountVal').value);
+          var mpv = document.getElementById('amountVal').mpv = ttv;
+        var ttv = parseFloat(document.getElementById('subtaxVal').value);
+
+        if((subval > 100) && (subval <10000)) {
+            document.getElementById('taxVal').value = (subval * tax).toFixed(2);
+            document.getElementById('subtaxVal').value = subval + (subval * (tax).toFixed(2));
+            document.getElementById('amountVal').value = subval + (subval * (tax).toFixed(2));
+            document.getElementById('changeVal').value = (amv - ttv).toFixed(2);
+          
+            document.getElementById('confirm').disabled = false;
+        }
+        else {
+            document.getElementById('taxVal').value = null;
+            document.getElementById('taxVal').disabled = true;
+            document.getElementById('subtaxVal').value = null;
+            document.getElementById('subtaxVal').disabled = true;
+            document.getElementById('amountVal').disabled = true;
+            var amount = document.getElementById('amountVal').value = null;
+            
+            document.getElementById('changeVal').value = null;
+            document.getElementById('confirm').disabled = true;
+            
+
+        }
+
+        
+    }
+    function change() {     
+        var subval = parseFloat(document.getElementById('subtalVal').value);
+        var tax = 0.12;
+        var amv = parseFloat(document.getElementById('amountVal').value);
+          var mpv = document.getElementById('amountVal').mpv = ttv;
+        var ttv = parseFloat(document.getElementById('subtaxVal').value);
+
+        if((subval > 100) && (subval <10000)) {
+
+            parseFloat(document.getElementById("taxVal").value = (subval * tax).toFixed(2));
+            document.getElementById("taxVal").disabled = false;
+            document.getElementById("subtaxVal").disabled = false;
+            parseFloat(document.getElementById("subtaxVal").value = (subval * tax).toFixed(2));    
+            document.getElementById("amountVal").disabled = false;
+            parseFloat(document.getElementById("amountVal").value);
+            document.getElementById("changeVal").disabled = false;
+            document.getElementById("changeVal").value = (amv - ttv).toFixed(2);
+            document.getElementById("confirm").disabled = false;
+                
+          
+            if(amv < ttv) 
+                document.getElementById('confirm').disabled = true;
+            
+        }
+        else {
+            document.getElementById("taxVal").disabled = true;
+            document.getElementById("subtaxVal").disabled = true;
+            document.getElementById("amountVal").disabled = true;
+            document.getElementById("changeVal").disabled = true;
+            document.getElementById("confirm").disabled = true;
+            var tax = document.getElementById("taxVal").value = null;
+            var subtotal = document.getElementById("subtaxVal").value = null;
+            var amountpaid = document.getElementById("amountVal").value = null;
+            var change = document.getElementById("changeVal").value = null;
+            document.getElementById("confirm").disabled = true;
+            
+        }
+
+    }
+</script>    
