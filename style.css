@@ -1,0 +1,53 @@
+input[type=number] {
+    width: 100%;
+}
+input[type=text] {
+    width: 100%;
+}
+.table-hover {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2px;
+    background-color: gray;
+}
+.btn {
+    background-color: rgb(29, 29, 29);
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.btn-primary {
+    background-color: rgb(0, 0, 0);
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.thead, tr, th {
+    color: white;
+    font-size: large;
+}
+.fa {
+    
+    text-align: center;
+    text-decoration: none;
+  }
+  .fa:hover {
+    opacity: 0.7;
+  }  
+  .fa-facebook {
+    background: #000000;
+    color: white;
+  }
+  .fa-twitter {
+    background: #000000;
+    color: white;
+  }
+  .fa-github {
+    background: #000000;
+    color: white;
+  }
+  

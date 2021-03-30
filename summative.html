@@ -1,0 +1,546 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOODIELICIOUS</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+    <link rel = "stylesheet" href = "style.css">
+    
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a style="font-size: 40px">FOODIELICIOUS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">CONTACT INFORMATION</a>
+              </li>
+            <li>
+                <button class="btn"><a href="https://twitter.com/greyfittimoon" class="fa fa-twitter"></a></button>
+                <button class="btn"><a href="https://facebook.com/julius.morandante" class="fa fa-facebook"></a></button>
+                <button class="btn"><a href="https://github.com/juliusmorandante/edriven2020" class="fa fa-github"></a></button>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+    </nav>
+    <div class="container">
+        <div class = "bs-docs-section">
+            <div class="row">
+                <div class ="col-lg-12">
+                    <div class="bs-component">
+                        <table class="table table-hover" id='new'>
+                            <thead>
+                            <tr>
+                                <th>CUSTOMER NUMBER</th>
+                                <th>CUSTOMER NAME</th>
+                                <th>TOTAL</th>
+                                <th>ACTION</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>            
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+            ADD LIST
+        </button>
+    </div>
+
+            <!-- Button trigger modal -->
+    
+    <div class ="container col-12">
+        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+        ADD LIST
+    </button> -->
+        <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ORDER FORM</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="col-3 form-group">
+                        <label for="orderid">CUSTOMER NUMBER: </label>
+                        <input type="number" name="order" id="orderID" class="validate" required>
+                    </div>
+                    <div class="col-4 form-group">
+                        <label for="cusname">CUSTOMER NAME: </label>
+                        <input type="text" name="namet" id="namecust" class="validate" required>
+                    </div>
+                </div>
+                <div>
+                    <div class= col-3 form-group>
+                        <label for = "items">ITEMS</label>
+                    </div>
+                </div>
+                <div class ="row">
+                    <div class="col-3 form-group">
+                        <label for="main"></label>
+                        <select class="form-control" id="food1" placeholder="Select ITEM">
+                            <option></option>
+                        </select>
+                    </div>
+                    <div class="col-3 form-group">
+                        <label for="main">PRICE</label>
+                        <div class="form-control" >
+                            <input type="number" name="price" value="0" id="priceVal" placeholder="Enter price">
+                        </div>
+                    </div>
+                    <div class="col-3 form-group">
+                        <label for="main">QTY</label>
+                        <div class="form-control" >
+                            <input type="number" name="quantity" value="0" id="qtyVal" placeholder="QUANTITY">
+                        </div>
+                    </div>
+                    <div class="col-3 form-group">
+                        <label for="main">TOTAL</label>
+                        <div class="form-control" >
+                            <input type="number" name="totality" value="0" id="totalVal" placeholder="TOTAL" onkeyup="total()" onclick="total()" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div class ="row">
+                    <div class="col-3 form-group">
+                        <label for="main"></label>
+                        <select class="form-control" id="food2" placeholder="Select ITEM">
+                            <option></option>
+                        </select>
+                    </div>
+                    <div class="col-3 form-group">
+                        <label for="main"></label>
+                        <div class="form-control" >
+                            <input type="number" name="price" value="0" id="priceVal2" placeholder="Enter price">
+                        </div>
+                    </div>
+                    <div class="col-3 form-group">
+                        <label for="main"></label>
+                        <div class="form-control" >
+                            <input type="number" name="quantity" value="0" id="qtyVal2" placeholder="QUANTITY">
+                        </div>
+                    </div>
+                    <div class="col-3 form-group">
+                        <label for="main"></label>
+                        <div class="form-control" >
+                            <input type="number" name="totality" value="0" id="totalVal2" placeholder="TOTAL" onkeyup="total2()" onclick="total2()" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div class ="row">
+                    <div class="col-3 form-group">
+                        <label for="main"></label>
+                        <select class="form-control" id="food3" placeholder="Select ITEM">
+                            <option></option>
+                        </select>
+                    </div>
+                    <div class="col-3 form-group">
+                        <label for="main"></label>
+                        <div class="form-control" >
+                            <input type="number" name="price" value="0" id="priceVal3" placeholder="Enter price">
+                        </div>
+                    </div>
+                    <div class="col-3 form-group">
+                        <label for="main"></label>
+                        <div class="form-control" >
+                            <input type="number" name="quantity" value="0" id="qtyVal3" placeholder="QUANTITY">
+                        </div>
+                    </div>
+                    <div class="col-3 form-group">
+                        <label for="main"></label>
+                        <div class="form-control" >
+                            <input type="number" name="totality" value="0" id="totalVal3" placeholder="TOTAL" onkeyup="total3()" onclick="total3()" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div class ="row">
+                    <div class="col-3 form-group">
+                        <label for="main"></label>
+                        <select class="form-control" id="drink4" placeholder="Select ITEM">
+                            <option></option>
+                        </select>
+                    </div>
+                    <div class="col-3 form-group">
+                        <label for="main"></label>
+                        <div class="form-control" >
+                            <input type="number" name="price" value="0" id="priceVal4" placeholder="Enter price">
+                        </div>
+                    </div>
+                    <div class="col-3 form-group">
+                        <label for="main"></label>
+                        <div class="form-control" >
+                            <input type="number" name="quantity" value="0" id="qtyVal4" placeholder="QUANTITY">
+                        </div>
+                    </div>
+                    <div class="col-3 form-group">
+                        <label for="main"></label>
+                        <div class="form-control" >
+                            <input type="number" name="totality" value="0" id="totalVal4" placeholder="TOTAL" onkeyup="total4()" onclick="total4()" readonly>
+                        </div>
+                    </div>
+                </div>       
+                <div class="col-3 form-group">
+                    <label for="main3">OVERALL</label>
+                    <div class="form-control" >
+                        <input type="number" name="totality" id="totalVal5" placeholder="TOTAL" onkeyup="totalfinal()" onclick="totalfinal()" readonly>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal" id = "btn" value="Add" onclick="ADD()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>   
+        
+    
+    <script> 
+        function total() {
+            var price = parseFloat(document.getElementById('priceVal').value);
+            var qty = parseInt(document.getElementById('qtyVal').value);
+            var total = parseFloat(document.getElementById('totalVal').value = (price  * qty).toFixed(2));   
+        } 
+
+        function total2() {
+            var price2 = parseFloat(document.getElementById('priceVal2').value);
+            var qty2 = parseInt(document.getElementById('qtyVal2').value);
+            var total2 = parseFloat(document.getElementById('totalVal2').value = (price2  * qty2).toFixed(2));
+        }
+
+        function total3() {
+            var price3 = parseFloat(document.getElementById('priceVal3').value);
+            var qty3 = parseInt(document.getElementById('qtyVal3').value);
+            var total3 = parseFloat(document.getElementById('totalVal3').value = (price3  * qty3).toFixed(2));
+        }
+
+        function total4() {
+            var price4 = parseFloat(document.getElementById('priceVal4').value);
+            var qty4 = parseInt(document.getElementById('qtyVal4').value);
+            var total4 = parseFloat(document.getElementById('totalVal4').value = (price4  * qty4).toFixed(2));
+        }
+
+        function totalfinal() {
+            var t1 = parseFloat(document.getElementById('totalVal').value);
+            var t2 = parseFloat(document.getElementById('totalVal2').value);
+            var t3 = parseFloat(document.getElementById('totalVal3').value);
+            var t4 = parseFloat(document.getElementById('totalVal4').value);
+            var totality = parseFloat(document.getElementById('totalVal5').value = (t1 + t2 + t3 + t4).toFixed(2));
+        }
+        
+        
+       
+    </script>
+    
+  
+    
+   
+    <script> 
+
+        function ADD() {
+            var custname = document.getElementById('namecust').value;
+            var id = document.getElementById('orderID').value;       
+            let option = document.createElement('option').value;
+            
+            
+                
+
+            var drink = document.getElementById('drink4').value
+            var c1 = document.getElementById('food1').value;
+            var c2 = document.getElementById('food2').value;
+            var c3 = document.getElementById('food3').value;
+            var total = document.getElementById('totalVal').value;
+            var total2 = document.getElementById('totalVal2').value;
+            var total3 = document.getElementById('totalVal3').value;
+            var total4 = document.getElementById('totalVal4').value;
+            var total5 = document.getElementById('totalVal5').value;
+         
+            
+            
+            var table = document.getElementById('new');
+            var row = table.insertRow(table.rows.length);
+            var col = row.insertCell(0);
+            var col1 = row.insertCell(1);
+            var col2 = row.insertCell(2);
+            var col3 = row.insertCell(3);
+            col.innerHTML = id;
+            col1.innerHTML = custname;
+            col2.innerHTML = total5;
+            col3.innerHTML = '<button type = "button" id="butn" data-bs-target = "#modalExample" data-bs-toggle="modal">VIEW</button>'
+
+           
+            var data = {
+                idorder: '' + id,
+                custName: '' + custname,
+                totalPrice: '' + total5, 
+                items: {
+                    itemname1: {
+                        choice1: '' + c1,
+                        price: '' + total
+                    },
+                    itemname2: {
+                        choice2: '' + c2,
+                        price: '' + total2
+                    },
+                    itemname3: {
+                        choice3: '' + c3,
+                        price: '' + total3
+                    },
+                    itemname4: {
+                        choice4: '' + drink,
+                        price: '' + total4
+                    }
+                
+                },
+                };      
+        
+      
+
+            var Storage = window.localStorage;
+            var datalist = Storage.getItem('list');
+            
+
+            if(datalist == null) {
+
+                var objectarray = {
+                    objectlist: [{
+                        idorder: '' + id,
+                        custName: '' + custname,
+                        totalPrice: '' + total5, 
+                        items: {
+                            itemname1: {
+                                choice1: '' + c1,
+                                price: '' + total
+                            },
+                            itemname2: {
+                                choice2: '' + c2,
+                                price: '' + total2
+                            },
+                            itemname3: {
+                                choice3: '' + c3,
+                                price: '' + total3
+                            },
+                            itemname4: {
+                                choice4: '' + drink,
+                                price: '' + total4
+                            }
+                        }
+                    }]
+                }
+
+                var convertJSON = JSON.stringify(objectarray);
+                Storage.setItem('list', convertJSON);
+            }
+            else {
+                
+                var objectarray2 = JSON.parse(datalist);
+                objectarray2['objectlist'].push({
+                        idorder: '' + id,
+                        custName: '' + custname,
+                        totalPrice: '' + total5, 
+                        items: {
+                            itemname1: {
+                                choice1: '' + c1,
+                                price: '' + total
+                            },
+                            itemname2: {
+                                choice2: '' + c2,
+                                price: '' + total2
+                            },
+                            itemname3: {
+                                choice3: '' + c3,
+                                price: '' + total3
+                            },
+                            itemname4: {
+                                choice4: '' + drink,
+                                price: '' + total4
+                            }
+                        }
+                });
+                
+                var convertJSON = JSON.stringify(objectarray2);
+                Storage.setItem('list', convertJSON);
+                
+            }
+            
+            
+
+        }
+    </script> 
+    <div class="modal" id="modalExample" tabindex="-1" aria-labelledby="modalExampleLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">ITEMS</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script src="https://bootswatch.com/_vendor/jquery/dist/jquery.min.js"></script>
+    <script src="https://bootswatch.com/_vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- order1 -->
+    <script>
+        const item1 = document.getElementById('food1');
+        let foods = [];
+        let fooding = [];
+        const request = 'https://www.themealdb.com/api/json/v1/1/filter.php?a=Canadian';
+        const getData = async() => {const response = await fetch(request);
+            const jsondata = response.json()
+            return jsondata;
+        }
+
+        getData()
+            .then((value) => {
+                let arrfoods = value.meals;
+                for(food of arrfoods) {
+                    foods.push(food.strMeal);
+                    fooding.push(food.strMealThumb)
+                } 
+                pop1()
+            })
+            .catch((err) => {console.log(err)
+            })
+
+        function pop1() {
+            for(food of foods) {
+                    let option = document.createElement('option');
+                option.value = food; 
+                option.innerHTML = food;
+                food1.appendChild(option);
+            }
+        }
+
+    
+        const item2 = document.getElementById('food2');
+        let foods2 = [];
+        let fooding2 = [];
+        const request2 = 'https://www.themealdb.com/api/json/v1/1/filter.php?a=American';
+        const getData2 = async() => {const response2 = await fetch(request2);
+            const jsondata2 = response2.json()
+            return jsondata2;
+        }
+
+    getData2()
+        .then((value) => {
+            let arrfoods = value.meals;
+            for(food of arrfoods) {
+                foods2.push(food.strMeal);
+                fooding2.push(food.strMealThumb)
+            } 
+            pop2()
+        })
+        .catch((err) => {console.log(err)
+        })
+
+        function pop2() {
+            for(food of foods2) {
+                    let option = document.createElement('option');
+                option.value = food; 
+                option.innerHTML = food;
+                food2.appendChild(option);
+            }
+        }
+    
+        const item3 = document.getElementById('food3');
+        let foodss3 = [];
+        let foodings3 = [];
+        const request3 = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';
+        const getData3 = async() => {const response3 = await fetch(request3);
+            const jsondata3 = response3.json()
+            return jsondata3;
+        }
+
+    getData3()
+        .then((value) => {
+            let arrfood = value.meals;
+            for(food of arrfood) {
+                foodss3.push(food.strMeal);
+                foodings3.push(food.strMealThumb)
+            } 
+            pop3()
+        })
+        .catch((err) => {console.log(err)
+        })
+
+        function pop3() {
+            for(food of foodss3) {
+                    let option = document.createElement('option');
+                option.value = food; 
+                option.innerHTML = food;
+                food3.appendChild(option);
+            }
+        }
+
+    
+        const drink4 = document.getElementById('drink4');
+        let drinker = [];
+        let drinkss = [];
+        const request4 = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic';
+        const getData4 = async() => {const response4 = await fetch(request4);
+            const jsondata4 = response4.json()
+            return jsondata4;
+        }
+
+        getData4()
+            .then((value) => {
+                let arrdrink = value.drinks;
+                for(drinks of arrdrink) {
+                    drinker.push(drinks.strDrink);
+                    drinkss.push(drinks.strDrinkThumb)
+                } 
+                pop4()
+            })
+        .catch((err) => {console.log(err)
+        })
+
+        function pop4() {
+            for(drink of drinkss) {
+                    let option = document.createElement('option');
+                option.value = drink; 
+                option.innerHTML = drink;
+                drink4.appendChild(option);
+            }
+        }
+
+    
+    </script>   
+
+</body>
+</html>
